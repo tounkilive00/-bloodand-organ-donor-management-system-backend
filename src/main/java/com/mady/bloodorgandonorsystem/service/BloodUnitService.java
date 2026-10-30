@@ -1,18 +1,19 @@
 package com.mady.bloodorgandonorsystem.service;
 
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.mady.bloodorgandonorsystem.domain.BloodUnit;
 import com.mady.bloodorgandonorsystem.domain.Donation;
 import com.mady.bloodorgandonorsystem.domain.DonationStatus;
 import com.mady.bloodorgandonorsystem.repository.BloodUnitRepository;
 import com.mady.bloodorgandonorsystem.repository.DonationRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class BloodUnitService {
@@ -50,12 +51,12 @@ public class BloodUnitService {
         return bloodUnitRepository.findById(id);
     }
 
-    // E2: Blood unit history of a donor (JPQL: path navigation, ORDER BY)
+   
     public List<BloodUnit> getBloodUnitsByDonorCode(String donorCode) {
         return bloodUnitRepository.findByDonorCodeOrderByCollectedDateDesc(donorCode);
     }
 
-    // E3: Delete blood unit
+    
     @Transactional
     public String deleteBloodUnit(UUID id) {
         if (!bloodUnitRepository.existsById(id)) {
