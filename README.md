@@ -57,8 +57,6 @@ cd bloodand-organ-donor-management-system-backend
 
 ### Step 2 — Create the PostgreSQL Database
 
-Open a PostgreSQL shell (`psql`) or pgAdmin and run:
-
 ```sql
 CREATE DATABASE blood_donor_db;
 ```
@@ -67,14 +65,6 @@ CREATE DATABASE blood_donor_db;
 
 Edit `src/main/resources/application.properties` and set your PostgreSQL username and password:
 
-```properties
-spring.datasource.url=jdbc:postgresql://localhost:5432/blood_donor_db
-spring.datasource.username=your_postgres_username
-spring.datasource.password=your_postgres_password
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-server.port=8080
-```
 
 ### Step 4 — Build the Project
 
