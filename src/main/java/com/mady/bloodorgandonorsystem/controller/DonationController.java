@@ -53,13 +53,12 @@ public class DonationController {
         return new ResponseEntity<>("Donation saved successfully", HttpStatus.CREATED);
     }
 
-    // A2: Read all
     @GetMapping({"/all", ""})
     public ResponseEntity<List<Donation>> getAllDonations() {
         return new ResponseEntity<>(donationService.getAllDonations(), HttpStatus.OK);
     }
 
-    // A2: Read one
+    
     @GetMapping("/{id}")
     public ResponseEntity<?> getDonationById(@PathVariable UUID id) {
         Optional<Donation> donation = donationService.getDonationById(id);
@@ -70,7 +69,6 @@ public class DonationController {
         }
     }
 
-    // A2 & D2: Update
     @PutMapping({"/update/{id}", "/{id}"})
     public ResponseEntity<String> updateDonation(@PathVariable UUID id, @RequestBody Donation donation) {
         String res = donationService.updateDonation(id, donation);
@@ -81,7 +79,7 @@ public class DonationController {
         }
     }
 
-    // A2 & E3: Delete and protect
+    
     @DeleteMapping({"/delete/{id}", "/{id}"})
     public ResponseEntity<String> deleteDonation(@PathVariable UUID id) {
         String res = donationService.deleteDonation(id);
@@ -94,13 +92,13 @@ public class DonationController {
         }
     }
 
-    // B2: Donations by status (DERIVED)
+    
     @GetMapping("/by-status")
     public ResponseEntity<List<Donation>> getByStatus(@RequestParam DonationStatus status) {
         return new ResponseEntity<>(donationService.findByStatus(status), HttpStatus.OK);
     }
 
-    // B3: Donations in date range (DERIVED)
+    
     @GetMapping("/between")
     public ResponseEntity<List<Donation>> getBetween(@RequestParam String start, @RequestParam String end) {
         LocalDate startDate = LocalDate.parse(start);
@@ -108,7 +106,7 @@ public class DonationController {
         return new ResponseEntity<>(donationService.findBetween(startDate, endDate), HttpStatus.OK);
     }
 
-    // D2: Status flow
+    
     @PatchMapping("/{id}/status")
     public ResponseEntity<String> updateStatus(@PathVariable UUID id, @RequestParam DonationStatus status) {
         String res = donationService.updateStatus(id, status);
@@ -121,13 +119,12 @@ public class DonationController {
         }
     }
 
-    // F1: Donations per status (JPQL)
+    
     @GetMapping("/stats/by-status")
     public ResponseEntity<List<Object[]>> getStatsByStatus() {
         return new ResponseEntity<>(donationService.getStatsByStatus(), HttpStatus.OK);
     }
 
-    // F2: Coordinator is absent (JPQL: UPDATE, @Modifying, @Transactional)
     @PatchMapping("/cancel-day")
     public ResponseEntity<String> cancelDay(@RequestParam UUID coordinatorId, @RequestParam String date) {
         LocalDate localDate = LocalDate.parse(date);

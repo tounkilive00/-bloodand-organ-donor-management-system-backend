@@ -1,19 +1,20 @@
 package com.mady.bloodorgandonorsystem.service;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.mady.bloodorgandonorsystem.domain.CollectionSite;
 import com.mady.bloodorgandonorsystem.domain.Coordinator;
 import com.mady.bloodorgandonorsystem.domain.DonationType;
 import com.mady.bloodorgandonorsystem.repository.CollectionSiteRepository;
 import com.mady.bloodorgandonorsystem.repository.CoordinatorRepository;
 import com.mady.bloodorgandonorsystem.repository.DonationTypeRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
 
 @Service
 public class CoordinatorService {
@@ -79,12 +80,12 @@ public class CoordinatorService {
         return "Coordinator deleted successfully";
     }
 
-    // C1: Coordinators by donation type (JPQL)
+    
     public List<Coordinator> getCoordinatorsByDonationType(String name) {
         return coordinatorRepository.findByDonationTypeNameIgnoreCase(name);
     }
 
-    // D3: Add one donation type to a coordinator
+    
     @Transactional
     public String addDonationType(UUID coordinatorId, UUID donationTypeId) {
         Optional<Coordinator> coordOpt = coordinatorRepository.findById(coordinatorId);
@@ -109,7 +110,7 @@ public class CoordinatorService {
         return "Donation type added to the coordinator";
     }
 
-    // D4: Move a coordinator to another collection site
+    
     @Transactional
     public String moveCollectionSite(UUID coordinatorId, int siteNumber) {
         Optional<Coordinator> coordOpt = coordinatorRepository.findById(coordinatorId);

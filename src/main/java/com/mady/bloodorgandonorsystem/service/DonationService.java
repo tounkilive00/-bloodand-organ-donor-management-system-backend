@@ -1,23 +1,22 @@
 package com.mady.bloodorgandonorsystem.service;
 
-import com.mady.bloodorgandonorsystem.domain.Coordinator;
-import com.mady.bloodorgandonorsystem.domain.Donation;
-import com.mady.bloodorgandonorsystem.domain.DonationStatus;
-import com.mady.bloodorgandonorsystem.domain.Donor;
-import com.mady.bloodorgandonorsystem.repository.BloodUnitRepository;
-import com.mady.bloodorgandonorsystem.repository.CoordinatorRepository;
-import com.mady.bloodorgandonorsystem.repository.DonationRepository;
-import com.mady.bloodorgandonorsystem.repository.DonorRepository;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import com.mady.bloodorgandonorsystem.domain.Donation;
+import com.mady.bloodorgandonorsystem.domain.DonationStatus;
+import com.mady.bloodorgandonorsystem.repository.BloodUnitRepository;
+import com.mady.bloodorgandonorsystem.repository.CoordinatorRepository;
+import com.mady.bloodorgandonorsystem.repository.DonationRepository;
+import com.mady.bloodorgandonorsystem.repository.DonorRepository;
 
 @Service
 public class DonationService {
@@ -78,8 +77,6 @@ public class DonationService {
         donationRepository.save(existing);
         return "Donation updated successfully";
     }
-
-    // A2 & E3: Delete and protect (DERIVED existsByDonation)
     @Transactional
     public String deleteDonation(UUID id) {
         if (!donationRepository.existsById(id)) {
@@ -92,17 +89,17 @@ public class DonationService {
         return "Donation deleted successfully";
     }
 
-    // B2: Donations by status (DERIVED)
+   
     public List<Donation> findByStatus(DonationStatus status) {
         return donationRepository.findByStatusOrderByDonationDateAsc(status);
     }
 
-    // B3: Donations in date range (DERIVED)
+    
     public List<Donation> findBetween(LocalDate start, LocalDate end) {
         return donationRepository.findByDonationDateBetweenOrderByDonationDateAsc(start, end);
     }
 
-    // D2: Status flow
+    
     @Transactional
     public String updateStatus(UUID id, DonationStatus newStatus) {
         Optional<Donation> opt = donationRepository.findById(id);
@@ -133,12 +130,12 @@ public class DonationService {
         return "Donation status updated successfully";
     }
 
-    // F1: Donations per status (JPQL)
+    
     public List<Object[]> getStatsByStatus() {
         return donationRepository.countDonationsPerStatus();
     }
 
-    // F2: Coordinator is absent (JPQL: UPDATE, @Modifying, @Transactional)
+    
     @Transactional
     public String cancelDay(UUID coordinatorId, LocalDate date) {
         int cancelled = donationRepository.cancelDayForCoordinator(
@@ -146,7 +143,7 @@ public class DonationService {
         return cancelled + " donations cancelled";
     }
 
-    // Bonus +5: Donations page by page
+    // Bonus  Donations page by page
     public Page<Donation> getDonationsPage(Pageable pageable) {
         return donationRepository.findAll(pageable);
     }

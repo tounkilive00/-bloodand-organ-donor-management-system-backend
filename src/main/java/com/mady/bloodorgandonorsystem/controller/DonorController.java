@@ -1,15 +1,24 @@
 package com.mady.bloodorgandonorsystem.controller;
 
-import com.mady.bloodorgandonorsystem.domain.Donor;
-import com.mady.bloodorgandonorsystem.service.DonorService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mady.bloodorgandonorsystem.domain.Donor;
+import com.mady.bloodorgandonorsystem.service.DonorService;
 
 @RestController
 @RequestMapping("/api/donors")
@@ -59,13 +68,13 @@ public class DonorController {
         }
     }
 
-    // B1: Find donors by lastName (DERIVED: IgnoreCase, OrderBy)
+   
     @GetMapping("/by-last-name")
     public ResponseEntity<List<Donor>> getDonorsByLastName(@RequestParam String lastName) {
         return new ResponseEntity<>(donorService.findByLastName(lastName), HttpStatus.OK);
     }
 
-    // C4: Donors of a coordinator (JPQL: DISTINCT, path navigation)
+    
     @GetMapping("/of-coordinator/{coordinatorId}")
     public ResponseEntity<?> getDonorsOfCoordinator(@PathVariable UUID coordinatorId) {
         Optional<List<Donor>> donors = donorService.getDonorsOfCoordinator(coordinatorId);

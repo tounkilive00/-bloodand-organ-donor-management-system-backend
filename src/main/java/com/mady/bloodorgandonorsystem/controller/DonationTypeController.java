@@ -67,7 +67,7 @@ public class DonationTypeController {
         }
     }
 
-    // C3: Donation types nobody holds (JPQL: IS EMPTY)
+   
     @GetMapping("/unused")
     public ResponseEntity<List<DonationType>> getUnusedDonationTypes() {
         return new ResponseEntity<>(donationTypeService.getUnusedDonationTypes(), HttpStatus.OK);

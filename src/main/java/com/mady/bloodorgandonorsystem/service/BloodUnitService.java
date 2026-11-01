@@ -24,7 +24,7 @@ public class BloodUnitService {
     @Autowired
     private DonationRepository donationRepository;
 
-    // E1: Write a blood unit
+    
     @Transactional
     public String saveBloodUnit(UUID donationId, BloodUnit bloodUnit) {
         Optional<Donation> donationOpt = donationRepository.findById(donationId);

@@ -1,15 +1,16 @@
 package com.mady.bloodorgandonorsystem.service;
 
-import com.mady.bloodorgandonorsystem.domain.Donor;
-import com.mady.bloodorgandonorsystem.repository.CoordinatorRepository;
-import com.mady.bloodorgandonorsystem.repository.DonorRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import com.mady.bloodorgandonorsystem.domain.Donor;
+import com.mady.bloodorgandonorsystem.repository.CoordinatorRepository;
+import com.mady.bloodorgandonorsystem.repository.DonorRepository;
 
 @Service
 public class DonorService {
@@ -57,12 +58,11 @@ public class DonorService {
         return "Donor deleted successfully";
     }
 
-    // B1: Find donors by lastName (DERIVED: IgnoreCase, OrderBy)
+  
     public List<Donor> findByLastName(String lastName) {
         return donorRepository.findByLastNameIgnoreCaseOrderByFirstNameAsc(lastName);
     }
 
-    // C4: Donors of a coordinator (JPQL: DISTINCT, path navigation)
     public Optional<List<Donor>> getDonorsOfCoordinator(UUID coordinatorId) {
         if (!coordinatorRepository.existsById(coordinatorId)) {
             return Optional.empty();

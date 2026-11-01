@@ -13,7 +13,7 @@ import com.mady.bloodorgandonorsystem.domain.BloodUnit;
 @Repository
 public interface BloodUnitRepository extends JpaRepository<BloodUnit, UUID> {
 
-    // E2: Blood unit history of a donor
+    //  Blood unit history of a donor
     @Query("SELECT b FROM BloodUnit b WHERE b.donation.donor.donorCode = :donorCode ORDER BY b.collectedDate DESC")
     List<BloodUnit> findByDonorCodeOrderByCollectedDateDesc(@Param("donorCode") String donorCode);
 

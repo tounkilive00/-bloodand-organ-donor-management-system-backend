@@ -1,14 +1,15 @@
 package com.mady.bloodorgandonorsystem.service;
 
-import com.mady.bloodorgandonorsystem.domain.CollectionSite;
-import com.mady.bloodorgandonorsystem.repository.CollectionSiteRepository;
+import java.util.List;
+import java.util.Optional;
+import java.util.UUID;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.UUID;
+import com.mady.bloodorgandonorsystem.domain.CollectionSite;
+import com.mady.bloodorgandonorsystem.repository.CollectionSiteRepository;
 
 @Service
 public class CollectionSiteService {
@@ -50,7 +51,7 @@ public class CollectionSiteService {
         return "Collection site deleted successfully";
     }
 
-    // C2: Free collection sites (JPQL: NOT EXISTS subquery)
+    
     public List<CollectionSite> getFreeCollectionSites() {
         return collectionSiteRepository.findFreeCollectionSites();
     }
