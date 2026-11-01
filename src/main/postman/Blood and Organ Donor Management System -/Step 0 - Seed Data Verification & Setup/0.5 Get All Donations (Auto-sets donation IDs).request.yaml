@@ -1,0 +1,17 @@
+$kind: http-request
+url: http://localhost:8080/api/donations/all
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      var data = pm.response.json();
+      data.forEach(function(d) {
+          if (d.status === 'REGISTERED' && !pm.collectionVariables.get('registeredDonationId')) {
+              pm.collectionVariables.set('registeredDonationId', d.id);
+          }
+          if (d.status === 'COLLECTED' && !pm.collectionVariables.get('collectedDonationId')) {
+              pm.collectionVariables.set('collectedDonationId', d.id);
+          }
+      });
+    language: text/javascript
+order: 5000

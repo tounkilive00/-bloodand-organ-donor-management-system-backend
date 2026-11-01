@@ -1,0 +1,8 @@
+$kind: http-request
+url: http://localhost:8080/api/donations/page?page=0&size=5&sort=donationDate,desc
+method: GET
+queryParams:
+  page: "0"
+  size: "5"
+  sort: donationDate,desc
+order: 2000

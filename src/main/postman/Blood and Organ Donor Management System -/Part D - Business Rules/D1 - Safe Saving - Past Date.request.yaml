@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8080/api/donations/save
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "donationDate": "2020-01-01",
+        "urgency": "NORMAL"
+    }
+order: 1000

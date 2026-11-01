@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8080/api/blood-units/save?donationId=80006357-c5b1-470b-a9e1-8c05dd31d589
+method: POST
+headers:
+  Content-Type: application/json
+queryParams:
+  donationId: 80006357-c5b1-470b-a9e1-8c05dd31d589
+body:
+  type: text
+  content: |-
+    {
+        "component": "Red Cells",
+        "remarks": "Stored at bank fridge 2",
+        "volumeMl": 450
+    }
+order: 1000

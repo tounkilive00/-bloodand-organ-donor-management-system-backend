@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8080/api/coordinators/by-donation-type?name=plasma
+method: GET
+queryParams:
+  name: plasma
+order: 1000

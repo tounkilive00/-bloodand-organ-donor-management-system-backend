@@ -1,0 +1,13 @@
+$kind: http-request
+url: http://localhost:8080/api/donation-types/all
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      var data = pm.response.json();
+      data.forEach(function(item) {
+          if (item.name === 'Whole Blood') pm.collectionVariables.set('wholeBloodTypeId', item.id);
+          if (item.name === 'Bone Marrow') pm.collectionVariables.set('boneMarrowTypeId', item.id);
+      });
+    language: text/javascript
+order: 1000

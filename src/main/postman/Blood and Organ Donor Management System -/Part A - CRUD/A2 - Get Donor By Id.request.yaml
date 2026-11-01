@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/donors/4e74a097-7250-4a10-a40f-ae49100eb443
+method: GET
+order: 3000

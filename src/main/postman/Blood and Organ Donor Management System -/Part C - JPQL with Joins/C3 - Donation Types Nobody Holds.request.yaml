@@ -1,0 +1,4 @@
+$kind: http-request
+url: "{{baseUrl}}/api/donation-types/unused"
+method: GET
+order: 3000

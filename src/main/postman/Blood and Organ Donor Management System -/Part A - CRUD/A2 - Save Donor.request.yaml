@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8080/api/donors/save
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "firstName": "Mady",
+        "lastName": "Reteno",
+        "donorCode": "DN-8888",
+        "bloodType": "O+",
+        "phone": "+250788999000"
+    }
+order: 1000

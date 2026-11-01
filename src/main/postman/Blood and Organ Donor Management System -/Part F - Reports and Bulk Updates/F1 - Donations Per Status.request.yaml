@@ -1,0 +1,4 @@
+$kind: http-request
+url: " http://localhost:8080/api/donations/stats/by-status"
+method: GET
+order: 1000

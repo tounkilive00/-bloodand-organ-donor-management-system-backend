@@ -1,0 +1,7 @@
+$kind: http-request
+url: http://localhost:8080/api/donations/cancel-day?coordinatorId=ccc4ffbc-5397-46ec-8f3a-b9e5973c1376&date=2026-10-20
+method: PATCH
+queryParams:
+  coordinatorId: ccc4ffbc-5397-46ec-8f3a-b9e5973c1376
+  date: 2026-10-20
+order: 2000

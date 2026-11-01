@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/donors/delete/00000000-0000-0000-0000-000000000000
+method: DELETE
+order: 6000

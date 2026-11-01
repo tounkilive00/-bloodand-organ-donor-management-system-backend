@@ -1,0 +1,16 @@
+$kind: http-request
+url: http://localhost:8080/api/donors/update/4e74a097-7250-4a10-a40f-ae49100eb443
+method: PUT
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "firstName": "Mady Updated",
+        "lastName": "Reteno",
+        "donorCode": "DN-8888",
+        "bloodType": "O+",
+        "phone": "+250788999111"
+    }
+order: 5000

@@ -1,0 +1,6 @@
+$kind: http-request
+url: " http://localhost:8080/api/donations/80006357-c5b1-470b-a9e1-8c05dd31d589/status?status=REGISTERED"
+method: PATCH
+queryParams:
+  status: REGISTERED
+order: 5000

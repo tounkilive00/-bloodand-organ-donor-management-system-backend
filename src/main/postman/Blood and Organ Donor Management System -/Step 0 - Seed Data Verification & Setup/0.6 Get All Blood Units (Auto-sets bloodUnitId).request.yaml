@@ -1,0 +1,12 @@
+$kind: http-request
+url: http://localhost:8080/api/blood-units/all
+method: GET
+scripts:
+  - type: afterResponse
+    code: |-
+      var data = pm.response.json();
+      if (data && data.length > 0) {
+          pm.collectionVariables.set('bloodUnitId', data[0].id);
+      }
+    language: text/javascript
+order: 6000

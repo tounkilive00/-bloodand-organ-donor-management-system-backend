@@ -1,0 +1,5 @@
+$kind: http-request
+name: C4 - Donors Of Coordinator
+url: http://localhost:8080/api/donors/of-coordinator/00000000-0000-0000-0000-000000000000
+method: GET
+order: 5000

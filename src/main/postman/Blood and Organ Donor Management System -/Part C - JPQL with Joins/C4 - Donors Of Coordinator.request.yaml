@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/donors/of-coordinator/ccc4ffbc-5397-46ec-8f3a-b9e5973c1376
+method: GET
+order: 4000

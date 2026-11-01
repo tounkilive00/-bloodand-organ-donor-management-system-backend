@@ -1,0 +1,4 @@
+$kind: http-request
+url: http://localhost:8080/api/coordinators/ccc4ffbc-5397-46ec-8f3a-b9e5973c1376/donation-types/28eff40c-af91-460e-ba43-e128d2a33840
+method: PUT
+order: 7000

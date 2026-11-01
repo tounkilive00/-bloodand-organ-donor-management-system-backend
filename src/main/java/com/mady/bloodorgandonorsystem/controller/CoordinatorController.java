@@ -1,15 +1,25 @@
 package com.mady.bloodorgandonorsystem.controller;
 
-import com.mady.bloodorgandonorsystem.domain.Coordinator;
-import com.mady.bloodorgandonorsystem.service.CoordinatorService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mady.bloodorgandonorsystem.domain.Coordinator;
+import com.mady.bloodorgandonorsystem.service.CoordinatorService;
 
 @RestController
 @RequestMapping("/api/coordinators")
@@ -59,7 +69,7 @@ public class CoordinatorController {
         }
     }
 
-    // C1: Coordinators by donation type (JPQL)
+    // C1: Coordinators by donation type 
     @GetMapping("/by-donation-type")
     public ResponseEntity<List<Coordinator>> getCoordinatorsByDonationType(@RequestParam String name) {
         return new ResponseEntity<>(coordinatorService.getCoordinatorsByDonationType(name), HttpStatus.OK);

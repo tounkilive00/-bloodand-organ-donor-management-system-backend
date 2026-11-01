@@ -1,15 +1,23 @@
 package com.mady.bloodorgandonorsystem.controller;
 
-import com.mady.bloodorgandonorsystem.domain.CollectionSite;
-import com.mady.bloodorgandonorsystem.service.CollectionSiteService;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.mady.bloodorgandonorsystem.domain.CollectionSite;
+import com.mady.bloodorgandonorsystem.service.CollectionSiteService;
 
 @RestController
 @RequestMapping("/api/collection-sites")
@@ -59,7 +67,8 @@ public class CollectionSiteController {
         }
     }
 
-    // C2: Free collection sites (JPQL: NOT EXISTS subquery)
+    // C2: Free collection sites 
+
     @GetMapping("/free")
     public ResponseEntity<List<CollectionSite>> getFreeCollectionSites() {
         return new ResponseEntity<>(collectionSiteService.getFreeCollectionSites(), HttpStatus.OK);

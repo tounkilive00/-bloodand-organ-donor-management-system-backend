@@ -1,0 +1,19 @@
+$kind: http-request
+url: "{{baseUrl}}/api/donations/save"
+method: POST
+headers:
+  Content-Type: application/json
+body:
+  type: text
+  content: |-
+    {
+        "donationDate": "2026-11-25",
+        "urgency": "NORMAL",
+        "donor": {
+            "id": "4e74a097-7250-4a10-a40f-ae49100eb443"
+        },
+        "coordinator": {
+            "id": "ccc4ffbc-5397-46ec-8f3a-b9e5973c1376"
+        }
+    }
+order: 3000

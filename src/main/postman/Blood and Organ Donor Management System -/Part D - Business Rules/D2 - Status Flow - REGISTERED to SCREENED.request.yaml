@@ -1,0 +1,6 @@
+$kind: http-request
+url: " http://localhost:8080/api/donations/1fd8dc74-8cae-47b1-9348-9c778ced2bcc/status?status=SCREENED"
+method: PATCH
+queryParams:
+  status: SCREENED
+order: 4000

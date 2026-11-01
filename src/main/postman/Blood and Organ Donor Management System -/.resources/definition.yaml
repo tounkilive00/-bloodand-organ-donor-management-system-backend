@@ -1,0 +1,14 @@
+$kind: collection
+description: |-
+  Postman Collection for INSY 8322 Web Technology and Internet Mid-Term Examination.
+  Student: Reteno Tounkara Mady (ID: 26748)
+  Lecturer: Patrick DUSHIMIMANA
+variables:
+  baseUrl: http://localhost:8080
+  donorId: 4e74a097-7250-4a10-a40f-ae49100eb443
+  coordinatorId: ccc4ffbc-5397-46ec-8f3a-b9e5973c1376
+  registeredDonationId: 1fd8dc74-8cae-47b1-9348-9c778ced2bcc
+  collectedDonationId: 80006357-c5b1-470b-a9e1-8c05dd31d589
+  bloodUnitId: ce406080-d2dc-48ac-98a6-78f360b1f75f
+  wholeBloodTypeId: 3fcc825a-2ad5-44c8-b4d3-b6da12c155d4
+  boneMarrowTypeId: 28eff40c-af91-460e-ba43-e128d2a33840

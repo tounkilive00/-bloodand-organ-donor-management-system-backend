@@ -1,0 +1,6 @@
+$kind: http-request
+url: http://localhost:8080/api/donations/by-status?status=REGISTERED
+method: GET
+queryParams:
+  status: REGISTERED
+order: 2000

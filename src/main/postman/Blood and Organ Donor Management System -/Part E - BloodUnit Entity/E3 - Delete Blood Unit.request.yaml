@@ -1,0 +1,4 @@
+$kind: http-request
+url: " http://localhost:8080/api/blood-units/delete/ce406080-d2dc-48ac-98a6-78f360b1f75f"
+method: DELETE
+order: 5000
